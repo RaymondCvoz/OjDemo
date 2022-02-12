@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="raymond.dao.TestMapper">
+    <insert id="addObj" parameterType="int">
+        insert into demo.testObj(objName, objCounts, detail)
+        values (#{objName},#{objCounts},#{detail});
+    </insert>
+
+    <delete id="deleteObjById" parameterType="int">
+        delete from demo.testObj where objID = #{objID};
+    </delete>
+    
+    <update id="updateObj" parameterType="TestObj">
+        update demo.testObj set objName = #{objName},objCounts = #{objCounts},detail = #{detail}
+        where objID = #{objID};
+    </update>
+
+    <select id="queryObjByID" resultType="TestObj">
+        select * from demo.testObj where objID = #{objID};
+    </select>
+
+    <select id="queryAllObj" resultType="TestObj">
+        select * from demo.testObj;
+    </select>
+</mapper>
